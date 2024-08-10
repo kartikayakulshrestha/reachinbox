@@ -1,7 +1,6 @@
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import axios from "axios"
 import google from "../assets/google.png"
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'

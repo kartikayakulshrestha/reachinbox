@@ -1,7 +1,7 @@
 import React from 'react'
 import logoAtDark from '../assets/onlylogodark.png'
 import logoAtLight from "../assets/onlylogolight.png"
-
+import { urlRoute } from '../features/feature'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react';
 
@@ -15,12 +15,16 @@ import menuD from "../assets/menuD.png"
 import boxD from "../assets/boxD.png"
 const LeftBar = () => {
   const [selectedItem, setSelectedItem] = useState('/'); // Initialize with the default path
-
+  const dispatch=useDispatch()
   const handleMenuItemClick = (path) => {
     setSelectedItem(path);
+    dispatch(urlRoute(path))
     
   };
   const darkview = useSelector((state) => state.counter.darkView)
+  const noOfmessage=useSelector((state)=> state.counter.noOfMsg )
+  
+  console.log(noOfmessage)
   return (
     <div className='relative hidden lg:block'>
     <div className={`${darkview?"bg-[#101113] border-[#343A40]":"bg-white border-slate-500"}  overflow-hidden no-scrollbar border-r-2   left-0 top-0 fixed h-screen w-[79px] flex flex-col gap-20 items-center py-6  `}>
@@ -29,7 +33,7 @@ const LeftBar = () => {
       
       <div className="text-[#AEAEAE] space-y-8">
         
-        <div className={` my-1 mx-2  ${selectedItem === '/' ? 'bg-gray-500 rounded-md' : ''} cursor-pointer`} onClick={() => handleMenuItemClick('/')}>
+        <div  className={` my-1 mx-2  ${selectedItem === '/' ? 'bg-gray-500 rounded-md' : ''} cursor-pointer`} onClick={() => handleMenuItemClick('/')}>
         <img src={homeD} className="h-8 hover:bg-gray-500 rounded-md " />
         </div>
         {darkview?
@@ -46,10 +50,21 @@ const LeftBar = () => {
         <div className={` mx-2 cursor-pointer ${selectedItem === '/stack' ? 'bg-gray-500  rounded-md' : ''}`} onClick={() => handleMenuItemClick('/stack')}>
         <img src={menuD} className="h-6 mx-1 hover:bg-gray-500 rounded-md" />
         </div>
-        <div className={`p-1 ${selectedItem === '/inbox' ? 'bg-gray-500  rounded-md' : ''} cursor-pointer `} onClick={() => handleMenuItemClick('/inbox')}>
-        <img src={darkview?boxD:boxL} className="h-6 mx-1 hover:bg-gray-500 rounded-md" />
-        </div>
-        <div className={` mx-2 ${selectedItem === '/stacks' ? 'bg-gray-500 rounded-md' : ''} cursor-pointer`} onClick={() => handleMenuItemClick('/stacks')}>
+        <div
+  className={`p-1 relative cursor-pointer ${selectedItem === '/inbox' ? 'bg-gray-500 rounded-md' : ''}`}
+  onClick={() => handleMenuItemClick('/inbox')}
+>
+  {noOfmessage > 0 && (
+    <div className='h-6 w-6 rounded-full z-20 absolute -right-1 -top-3 bg-red-600 text-white flex items-center justify-center'>
+      {noOfmessage}
+    </div>
+  )}
+  <img
+    src={darkview ? boxD : boxL}
+    className={`h-6 mx-1 ${selectedItem === '/inbox' ? '' : 'hover:bg-gray-500 rounded-md'}`}
+  />
+</div>
+        <div className={` mx-2 z-10 ${selectedItem === '/stacks' ? 'bg-gray-500 rounded-md' : ''} cursor-pointer`} onClick={() => handleMenuItemClick('/stacks')}>
         <img src={statD} className="mx-1 h-6 hover:bg-gray-500 rounded-md" />
         
       </div>

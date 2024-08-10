@@ -9,6 +9,7 @@ import {
 import store from './app/store'
 import { Provider } from 'react-redux'
 import App from './App';
+import MainGround from './components/MainGround';
 const router = createBrowserRouter([
   {
     path: "/login",
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
   },{
     path: "/",
     element: <App />
-  }
+  },
+  
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

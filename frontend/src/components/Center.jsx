@@ -1,10 +1,12 @@
 import React from 'react'
 import message from "../assets/CenterPart/message.png"
 import { useEffect } from 'react'
+import { checkNoMessage } from '../features/feature'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from "axios"
 const Center = () => {
     const darkview = useSelector((state) => state.counter.darkView)
+    
     const dispatch = useDispatch()
     async function call() {
         const token = localStorage.getItem("token");
@@ -13,7 +15,9 @@ const Center = () => {
             Authorization: token,
           },
         });
-        console.log(response.data.data.length)
+        const res=response.data.data.length
+        dispatch(checkNoMessage(res))
+        
 
       }
     useEffect(() => {
