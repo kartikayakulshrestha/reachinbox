@@ -24,7 +24,9 @@ function App() {
     if (!token && !localStorageToken) {
       Navigate("/login");
     }else{
-      localStorage.setItem(token)
+      if(token){
+      localStorage.setItem("token",`Bearer ${token}`)
+      }
     }
   }, [token,localStorageToken]);
   return (
