@@ -8,7 +8,7 @@ const MainGround = () => {
     const [datas, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     
-    console.log(selectedThread);
+    
     useEffect(() => {
       const interval = setInterval(async () => {
         try {
@@ -50,7 +50,7 @@ const MainGround = () => {
     return (
         <div className="flex z-0 lg:ml-20 mt-20 relative">
   <div className="grid grid-cols-12 w-full   h-[650px] ">
-    {/* Optional left margin or padding */}
+    
     <div className="col-span-3">
         <Inbox />
     </div>
