@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const featureUse = createSlice({
+  name: 'featureUse',
   initialState: {
     value: 0,
+    darkView:1,
   },
   reducers: {
     increment: (state) => {
@@ -20,10 +21,17 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload
     },
+    viewDark:(state)=>{
+      if(state.darkView){
+        state.darkView-=1
+      }else{
+        state.darkView+=1
+      }
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount,viewDark } = featureUse.actions
 
-export default counterSlice.reducer
+export default featureUse.reducer
