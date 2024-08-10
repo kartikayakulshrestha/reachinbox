@@ -23,6 +23,8 @@ function App() {
   useEffect(() => {
     if (!token && !localStorageToken) {
       Navigate("/login");
+    }else{
+      localStorage.setItem(token)
     }
   }, [token,localStorageToken]);
   return (
