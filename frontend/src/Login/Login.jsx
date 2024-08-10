@@ -27,13 +27,13 @@ const Login = () => {
     <div>
       <Header />
       <div className="bg-black text-white flex flex-col justify-center items-center w-screen h-screen ">
-        <div className="bg-[#111214]  border border-[#343A40] text-center py-5 space-y-10 px-20 rounded-lg">
+        <div className="bg-[#111214]  border border-[#343A40] text-center py-5 sm:space-y-10 sm:px-20 rounded-lg">
           <div className="">
             <div className="text-2xl  font-medium  mt-6">
               Create a new account
             </div>
             <button
-              className="mt-6 border-white/40 border px-28 py-3 text-sm font-normal  flex items-center text-[#CCCCCC] rounded-md cursor-pointer mb-14"
+              className="mt-6 border-white/40 border ml-8 px-14 sm:px-28 py-3 text-sm font-normal  flex items-center text-[#CCCCCC] rounded-md cursor-pointer mb-14"
               onClick={handleGoogleLogin} 
             >
               <img src={google} alt="google" className="w-5 mr-3"></img>
