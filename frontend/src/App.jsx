@@ -12,15 +12,16 @@ function App() {
   
   const queryParams = new URLSearchParams(location.search);
   const token = queryParams.get("token");
-  console.log(token,queryParams)
+  const localStorageToken = localStorage.getItem("token")
+  
   useEffect(() => {
-    if (!token) {
+    if (!token && !localStorageToken) {
       Navigate("/login");
     }
-    if (token) {
+    if (token && localStorageToken) {
       localStorage.setItem("token", `Bearer ${token}`);
     }
-  }, [token]);
+  }, [token,localStorageToken]);
   return (
     <div>
       <div>
