@@ -7,7 +7,7 @@ const Center = () => {
     const darkview = useSelector((state) => state.counter.darkView)
     async function call() {
         const token = localStorage.getItem("token");
-        let response=await axios.get("https://hiring.reachinbox.xyz/api/v1/onebox/reset", {
+        let response=await axios.get("https://hiring.reachinbox.xyz/api/v1/onebox/list", {
           headers: {
             Authorization: token,
           },
