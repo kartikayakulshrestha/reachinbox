@@ -4,6 +4,8 @@ import { decrement, increment } from '../src/features/feature'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import TopOnebox from './components/TopOnebox'
+import LeftBar from './components/LeftBar'
+import Center from './components/Center'
 function App() {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
@@ -14,7 +16,7 @@ function App() {
   let token = queryParams.get("token");
   const localStorageToken = localStorage.getItem("token")
   //productionchange
-  token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoia2FydGlrYXlhLmt1bDA5MDhAZ21haWwuY29tIiwiaWQiOjUwNiwiZmlyc3ROYW1lIjoiS2FydGlrYXlhIiwibGFzdE5hbWUiOiJLdWxzaHJlc3RoYSJ9LCJpYXQiOjE3MjMyODU3ODMsImV4cCI6MTc1NDgyMTc4M30.o_BmQHlIKF0_74-IeR58AM4aPAxmLZBKRU7WVA7SnL0"
+  //token="Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoia2FydGlrYXlhLmt1bDA5MDhAZ21haWwuY29tIiwiaWQiOjUwNiwiZmlyc3ROYW1lIjoiS2FydGlrYXlhIiwibGFzdE5hbWUiOiJLdWxzaHJlc3RoYSJ9LCJpYXQiOjE3MjMyODU3ODMsImV4cCI6MTc1NDgyMTc4M30.o_BmQHlIKF0_74-IeR58AM4aPAxmLZBKRU7WVA7SnL0"
   
   useEffect(() => {
     if (!token && !localStorageToken) {
@@ -24,6 +26,8 @@ function App() {
   return (
     <div>
       <TopOnebox />
+      <LeftBar />
+      <Center />
        <div>
         <button
           aria-label="Increment value"

@@ -11,6 +11,7 @@ const Login = () => {
   const token = localStorage.getItem('token');
   const GOOGLE_LOGIN_URL = "https://hiring.reachinbox.xyz/api/v1/auth/google-login";
   const REDIRECT_URL = "https://localhost:5173/";
+  
   useEffect(() => {
     // Redirect based on token presence
     if (token) {
