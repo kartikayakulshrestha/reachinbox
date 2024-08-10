@@ -5,6 +5,7 @@ export const featureUse = createSlice({
   initialState: {
     value: 0,
     darkView:1,
+    tokenGen:"",
   },
   reducers: {
     increment: (state) => {
@@ -27,11 +28,14 @@ export const featureUse = createSlice({
       }else{
         state.darkView+=1
       }
+    },
+    tokenU:(state,action)=>{
+      state.tokenGen=action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount,viewDark } = featureUse.actions
+export const { increment, decrement, incrementByAmount,viewDark,tokenU } = featureUse.actions
 
 export default featureUse.reducer

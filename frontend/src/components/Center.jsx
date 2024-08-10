@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import axios from "axios"
 const Center = () => {
     const darkview = useSelector((state) => state.counter.darkView)
+    const dispatch = useDispatch()
     async function call() {
         const token = localStorage.getItem("token");
         let response=await axios.get("https://hiring.reachinbox.xyz/api/v1/onebox/list", {
@@ -12,7 +13,8 @@ const Center = () => {
             Authorization: token,
           },
         });
-        console.log(response)
+        console.log(response.data)
+
       }
     useEffect(() => {
         
