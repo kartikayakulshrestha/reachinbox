@@ -13,7 +13,7 @@ const Center = () => {
             Authorization: token,
           },
         });
-        console.log(response.data)
+        console.log(response.data.data)
 
       }
     useEffect(() => {
