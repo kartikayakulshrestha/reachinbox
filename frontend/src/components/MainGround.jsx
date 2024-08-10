@@ -3,10 +3,11 @@ import axios from "axios";
 import Createral from "./Createral";
 import RightSide from "./RightSide";
 import Inbox from "./Inbox";
+import { AiOutlineLoading } from "react-icons/ai";
 const MainGround = () => {
     const [datas, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedThread, setSelectedThread] = useState(null);
+    
     console.log(selectedThread);
     useEffect(() => {
       const interval = setInterval(async () => {
@@ -30,7 +31,7 @@ const MainGround = () => {
         }
       }, 2500);
     
-      // Cleanup function to clear the interval when the component unmounts
+      
       return () => clearInterval(interval);
     }, []);
     
@@ -38,15 +39,13 @@ const MainGround = () => {
     
     if (loading) {
       return (
-        <div className="bg-[#ECEFF3] dark:bg-black dark:text-white text-[#5B5F66] flex h-screen w-full justify-center items-center">
-          Loading ...
+        <div className="bg-[#ECEFF3] dark:bg-black dark:text-white text-[#5B5F66] flex h-screen w-full justify-center items-center ">
+          <AiOutlineLoading size={60} className=" animate-spin"/>
         </div>
       );
     }
   
-    const loadMail = async (threadId) => {
-      setSelectedThread(threadId);
-    };
+    
   
     return (
         <div className="flex z-0 lg:ml-20 mt-20 relative">
