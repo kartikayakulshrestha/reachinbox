@@ -1,5 +1,6 @@
 import React from 'react'
 import message from "../assets/CenterPart/message.png"
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 const Center = () => {
     const darkview = useSelector((state) => state.counter.darkView)

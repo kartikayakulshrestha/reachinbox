@@ -1,12 +1,13 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from '../src/features/feature'
 import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+
 import TopOnebox from './components/TopOnebox'
 import LeftBar from './components/LeftBar'
 import Center from './components/Center'
-import { useEffect } from 'react'
+
 function App() {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
