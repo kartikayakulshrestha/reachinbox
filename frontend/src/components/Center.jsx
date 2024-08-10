@@ -2,6 +2,7 @@ import React from 'react'
 import message from "../assets/CenterPart/message.png"
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import axios from "axios"
 const Center = () => {
     const darkview = useSelector((state) => state.counter.darkView)
     async function call() {
