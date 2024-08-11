@@ -8,7 +8,9 @@ export const featureUse = createSlice({
     noOfMsg:0,
     url:"/",
     dataList:[],
-    threadId:-1
+    threadId:-1,
+    threadData:[],
+    replyButton:0
   },
   reducers: {
     increment: (state) => {
@@ -45,10 +47,18 @@ export const featureUse = createSlice({
     updateThreadId:(state,action)=>{
       state.threadId=action.payload
     },
+    updateThreadData:(state,action)=>{
+      state.threadData=action.payload
+    },
+    replybuttonUpdate:(state,action)=>{
+      
+      
+        state.replyButton=action.payload
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount,viewDark,checkNoMessage,urlRoute,updateData,updateThreadId } = featureUse.actions
+export const { increment, decrement,replybuttonUpdate ,incrementByAmount,viewDark,checkNoMessage,urlRoute,updateData,updateThreadData,updateThreadId } = featureUse.actions
 
 export default featureUse.reducer

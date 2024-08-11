@@ -2,9 +2,10 @@ import React from "react";
 
 import greenCircle from "../assets/CenterPart/greenCircle.png";
 import { IoIosSend } from "react-icons/io";
-
+import axios from  "axios"
 import { useSelector, useDispatch } from "react-redux";
-import { updateThreadId } from "../features/feature";
+import { updateThreadId,updateThreadData } from "../features/feature";
+
 const Mail = ({ fromEmail, subject, threadId }) => {
   let darkview = useSelector((state) => state.counter.darkView);
   const dispatch = useDispatch();
@@ -19,14 +20,38 @@ const Mail = ({ fromEmail, subject, threadId }) => {
     return subject;
   };
   console.log(threadId,threadstoreID);
-
+  const searchThreadData=async ()=>{
+    try {
+      const token = localStorage.getItem("token")
+      const res = await axios.get(
+        `https://hiring.reachinbox.xyz/api/v1/onebox/messages/${threadId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      );
+      console.log(res)
+      const r=await res.data.data
+      if(r.length>0){
+        dispatch(updateThreadData(r))
+      }
+      
+      console.log("this is me",r)
+    }catch (error) {
+      console.error("Error fetching data:", error);
+    }}
   const handleClickThread=()=>{
     if(threadId===threadstoreID){
         dispatch(updateThreadId(-1))
+        dispatch(updateThreadData([]))
     }else{
+        
         dispatch(updateThreadId(threadId))
+        searchThreadData()
     }
   }
+
 
 
 
