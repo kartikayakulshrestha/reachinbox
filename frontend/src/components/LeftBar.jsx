@@ -70,7 +70,7 @@ const LeftBar = () => {
       </div>
       </div>
         <div className="absolute bottom-3 font-medium text-white bg-green-500 p-2 rounded-full">
-        P S
+        K K
       </div>
       
     </div>

@@ -1,21 +1,21 @@
 import React from 'react'
 import { IoIosArrowDown } from "react-icons/io";
-import {viewDark} from "../features/feature"
-import { useEffect } from 'react';
+
 import { useSelector, useDispatch } from 'react-redux'
 import { IoReload } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa";
-import { GoDotFill } from "react-icons/go";
-import { IoIosSend } from "react-icons/io";
-import { TbReload } from "react-icons/tb";
+
+import Mail from './Mail';
 const Inbox = () => {
     let noOfMessage= useSelector((state)=>state.counter.noOfMsg)
     let darkview = useSelector((state)=> state.counter.darkView)
-    let data=[]
-    useEffect(()=>{
-        
-    })
+    let data = useSelector((state)=> state.counter.dataList)
+    
+    console.log("from inbox",data)
+    function handleClickData(){
+
+    }
   return (
     <div className={`pt-5 px-5 ${darkview?"text-white border-[#33383F]":"text-black border-[#E0E0E0]"} border border-l-0 border-t-0 `} >
       <div className='grid grid-cols-8'>
@@ -33,7 +33,7 @@ const Inbox = () => {
           </div>
           
         <div className='col-span-2 relative'>
-            <div className='bg-[#25262B] rounded-md p-2 w-8 absolute right-2 top-2 '>
+            <div className={`${darkview?"bg-[#25262B]":"bg-[#DFE3E8]"} rounded-md p-2 w-8 absolute right-2 top-2`}>
                 <IoReload className="cursor pointer" color={darkview?"white":"grey"} size={20}/>
             </div>
         </div>
@@ -49,8 +49,8 @@ const Inbox = () => {
         </div>
         <div className="flex relative py-4">
           <div className={`${darkview? "text-white":"text-black"}`}>
-            <span className={`text-[#5C7CFA] font-bold w-8 px-3  rounded-3xl flex items-center ${darkview?"bg-[#222426]":"bg-[#ECECEC]"}`}>
-              {data.length}
+            <span className={`text-[#5C7CFA] font-bold w-8 px-3 py-1  rounded-3xl flex items-center ${darkview?"bg-[#222426]":"bg-[#ECECEC]"}`}>
+              {noOfMessage}
             
             </span>
             
@@ -59,12 +59,24 @@ const Inbox = () => {
           <div className={`flex items-center ml-2 font-medium ${darkview?"text-white":"text-black"}`}>
           New Replies
           </div>
-          <div className={`flex items-center absolute right-0  font-medium ${darkview?"text-white":"text-black"}`}>
-            Newest <FaAngleDown className="ml-3 text-xl" />
+          <div className={`flex items-center absolute right-0 py-1  font-medium ${darkview?"text-white":"text-black"}`}>
+            Newest <FaAngleDown className="ml-3 my-1 text-xl" />
           </div>
         </div>
       </div>
+      <div>
+        {data.map((e) => (
+          <Mail
+            key={e.id}
+            fromEmail={e.fromEmail}
+            subject={e.subject}
+            threadId={e.threadId}
+            onClick={handleClickData}
+          />
+        ))}
+      </div>
     </div>
+    
   )
 }
 

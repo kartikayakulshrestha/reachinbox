@@ -36,11 +36,15 @@ export const featureUse = createSlice({
     },
     urlRoute:(state,action)=>{
       state.url=action.payload
+    },
+    updateData:(state,action)=>{
+      console.log(action,"store feature")
+      state.dataList=action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount,viewDark,checkNoMessage,urlRoute } = featureUse.actions
+export const { increment, decrement, incrementByAmount,viewDark,checkNoMessage,urlRoute,updateData } = featureUse.actions
 
 export default featureUse.reducer

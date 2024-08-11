@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
+
+import { useSelector,useDispatch } from "react-redux";
 import Createral from "./Createral";
 import RightSide from "./RightSide";
 import Inbox from "./Inbox";
@@ -10,6 +11,7 @@ const MainGround = () => {
     const [datas, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     let darkview = useSelector((state)=> state.counter.darkView)
+    const dispatch = useDispatch()
     
     useEffect(() => {
       const interval = setInterval(async () => {
@@ -27,11 +29,13 @@ const MainGround = () => {
           const r=await res.data.data
           setData(r);
           setLoading(false);
-          console.log(datas)
+          console.log("maingrond",datas)
+          
+          
         } catch (error) {
           console.error("Error fetching data:", error);
         }
-      }, 2500);
+      }, 500);
     
       
       return () => clearInterval(interval);
@@ -50,16 +54,16 @@ const MainGround = () => {
     
   
     return (
-        <div className={`flex  fixed lg:ml-[79px] mt-20  ${darkview?"bg-black":"bg-white"} relative`}>
-  <div className="grid grid-cols-12 w-full h-[657px] ">
+        <div className={`flex no-scrollbar fixed lg:ml-[79px] mt-20  ${darkview?"bg-black":"bg-white"} relative`}>
+  <div className="grid grid-cols-12 w-full  overflow-x-hidden overflow-y-hidden no-scrollbar"style={{ height: 'calc(100vh - 80px)' }}>
     
-    <div className="col-span-3">
+    <div className="col-span-3 border border-r-2 overflow-y-auto border-opacity-50 border-y-0 border-x-0 border-slate-500">
         <Inbox />
     </div>
     <div className="col-span-6">
         <Createral />
     </div>
-    <div className="col-span-3">
+    <div className="col-span-3 overflow-y-auto">
         <RightSide />
     </div>
   </div>

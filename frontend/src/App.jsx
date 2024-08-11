@@ -34,8 +34,8 @@ function App() {
     <div>
       <TopOnebox />
       <LeftBar />
-
-      {selectedurl === "/inbox" ? <MainGround /> :<Center />}
+      {selectedurl === "/inbox" ? <MainGround/> :<Center />}
+      
     </div>
   );
 }
