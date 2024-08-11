@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
 import Createral from "./Createral";
 import RightSide from "./RightSide";
 import Inbox from "./Inbox";
+
 import { AiOutlineLoading } from "react-icons/ai";
 const MainGround = () => {
     const [datas, setData] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+    let darkview = useSelector((state)=> state.counter.darkView)
     
     useEffect(() => {
       const interval = setInterval(async () => {
@@ -39,7 +41,7 @@ const MainGround = () => {
     
     if (loading) {
       return (
-        <div className="bg-[#ECEFF3] dark:bg-black dark:text-white text-[#5B5F66] flex h-screen w-full justify-center items-center ">
+        <div className={`bg-[#ECEFF3] text-[#5B5F66] ${darkview?"bg-black":"bg-white"} flex h-screen w-full justify-center items-center `}>
           <AiOutlineLoading size={60} className=" animate-spin"/>
         </div>
       );
@@ -48,8 +50,8 @@ const MainGround = () => {
     
   
     return (
-        <div className="flex z-0 lg:ml-20 mt-20 relative">
-  <div className="grid grid-cols-12 w-full   h-[650px] ">
+        <div className={`flex  fixed lg:ml-[79px] mt-20  ${darkview?"bg-black":"bg-white"} relative`}>
+  <div className="grid grid-cols-12 w-full h-[657px] ">
     
     <div className="col-span-3">
         <Inbox />
@@ -57,7 +59,7 @@ const MainGround = () => {
     <div className="col-span-6">
         <Createral />
     </div>
-    <div className="col-span-3 bg-green-200">
+    <div className="col-span-3">
         <RightSide />
     </div>
   </div>

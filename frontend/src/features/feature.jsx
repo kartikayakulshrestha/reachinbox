@@ -6,7 +6,8 @@ export const featureUse = createSlice({
     value: 0,
     darkView:1,
     noOfMsg:0,
-    url:"/"
+    url:"/",
+    dataList:[]
   },
   reducers: {
     increment: (state) => {

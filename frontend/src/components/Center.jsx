@@ -35,7 +35,7 @@ const Center = () => {
       <div className="text-2xl my-8">
         It’s the beginning of a legendary sales pipeline
       </div>
-      <div className="dark:text-[#9E9E9E] text-[#5B5F66]">
+      <div className={`${darkview?"text-[#9E9E9E]":"text-[#5B5F66]"} `}>
         When you have inbound E-mails you’ll see them here
       </div>
     </div>

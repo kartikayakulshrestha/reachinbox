@@ -12,7 +12,7 @@ const TopOnebox = () => {
 const darkview = useSelector((state) => state.counter.darkView)
 const dispatch = useDispatch()
   return (
-    <div className={`${darkview ? `bg-[#343A40] border-slate-500` : "bg-white border-slate-500"} border border-t-0 border-r-0 flex text-sm top-0 right-0 h-[80px] items-center fixed w-screen lg:w-[95%]`}>
+    <div className={`fixed ${darkview ? `bg-[#343A40] border-slate-500` : "bg-white border-slate-500"} border border-t-0 border-r-0 flex text-sm top-0 right-0 h-[80px] items-center fixed w-screen lg:w-[95%]`}>
     <div className={`text-xl ml-6 font-medium ${darkview ? "text-[#FFFFFF]" : "text-slate-800"}`}>
         Onebox
     </div>
