@@ -5,17 +5,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { IoReload } from "react-icons/io5";
 import { CiSearch } from "react-icons/ci";
 import { FaAngleDown } from "react-icons/fa";
-
+import {updateThreadId} from "../features/feature"
 import Mail from './Mail';
 const Inbox = () => {
     let noOfMessage= useSelector((state)=>state.counter.noOfMsg)
     let darkview = useSelector((state)=> state.counter.darkView)
     let data = useSelector((state)=> state.counter.dataList)
     
-    console.log("from inbox",data)
-    function handleClickData(){
-
-    }
   return (
     <div className={`pt-5 px-5 ${darkview?"text-white border-[#33383F]":"text-black border-[#E0E0E0]"} border border-l-0 border-t-0 `} >
       <div className='grid grid-cols-8'>
@@ -66,12 +62,13 @@ const Inbox = () => {
       </div>
       <div>
         {data.map((e) => (
+          
           <Mail
             key={e.id}
             fromEmail={e.fromEmail}
             subject={e.subject}
             threadId={e.threadId}
-            onClick={handleClickData}
+            
           />
         ))}
       </div>
