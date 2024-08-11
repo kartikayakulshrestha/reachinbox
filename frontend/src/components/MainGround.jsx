@@ -54,14 +54,16 @@ const MainGround = () => {
     
   
     return (
-        <div className={`flex no-scrollbar fixed lg:ml-[79px] mt-20  ${darkview?"bg-black":"bg-white"} relative`}>
-  <div className="grid grid-cols-12 w-full  overflow-x-hidden overflow-y-hidden no-scrollbar"style={{ height: 'calc(100vh - 80px)' }}>
+        <div className={`lg:ml-[79px] mt-20  ${darkview?"bg-black":"bg-white"} relative`}>
+  <div className="grid grid-cols-12 w-full  overflow-x-hidden no-scrollbar" style={{ height: 'calc(100vh - 80px)' }}>
     
-    <div className="col-span-3 border border-r-2 overflow-y-auto border-opacity-50 border-y-0 border-x-0 border-slate-500">
+    <div className="col-span-3 border border-r-2 overflow-y-auto border-opacity-50 border-y-0 border-x-0 border-slate-500 no-scrollbar">
+        
         <Inbox />
     </div>
-    <div className="col-span-6">
+    <div className="col-span-6 text-white overflow-y-auto no-scrollbar">
         <Createral />
+        
     </div>
     <div className="col-span-3 overflow-y-auto">
         <RightSide />
