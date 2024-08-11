@@ -31,7 +31,7 @@ const Login = () => {
               Create a new account
             </div>
             <button
-              className="mt-6 border-white/40 border ml-8 px-14 sm:px-28 py-3 text-sm font-normal  flex items-center text-[#CCCCCC] rounded-md cursor-pointer mb-14"
+              className="mt-6 border-white/40 border  px-10 mr-4 sm:px-28 py-3 text-sm font-normal  flex items-center text-[#CCCCCC] rounded-md cursor-pointer mb-14"
               onClick={handleGoogleLogin}
             >
               <img src={google} alt="google" className="w-5 mr-3"></img>
