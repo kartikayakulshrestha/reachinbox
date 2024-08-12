@@ -14,14 +14,14 @@ const Center = () => {
         const token = localStorage.getItem("token");
         let response=await axios.get("https://hiring.reachinbox.xyz/api/v1/onebox/list", {
           headers: {
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoicmVjcnVpdGVyLnN1ZXN5c0BnbWFpbC5jb20iLCJpZCI6NjI3LCJmaXJzdE5hbWUiOiJSZXNvdXJjaW5nIFRlYW0iLCJsYXN0TmFtZSI6bnVsbH0sImlhdCI6MTcyMzM4OTMzMywiZXhwIjoxNzU0OTI1MzMzfQ.0VyIXr6iIs4eC314KWsRewLTtnxpNr74qLqKhkCk5OU",
+            Authorization: token,
           },
         });
-        const resLen=response.data.data.length
-        const res=response.data.data
-        console.log(res)
+        const resLen=await response.data.data.length
+        const res=await response.data.data
+        console.log("center" ,resLen,res)
         dispatch(checkNoMessage(resLen))
-        
+      
         dispatch(updateData(res))
       }
     useEffect(() => {
