@@ -22,6 +22,7 @@ const MainGround = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
+        console.log("this me main")
         const token = localStorage.getItem("token");
         const res = await axios.get(
           "https://hiring.reachinbox.xyz/api/v1/onebox/list",
@@ -34,6 +35,7 @@ const MainGround = () => {
 
         const r = await res.data.data;
         setData(r);
+        console.log(r)
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);

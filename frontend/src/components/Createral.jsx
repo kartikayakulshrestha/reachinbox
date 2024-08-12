@@ -18,6 +18,7 @@ const Createral = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       try {
+        console.log("this central")
         const token = localStorage.getItem("token");
         const res = await axios.get(
           "https://hiring.reachinbox.xyz/api/v1/onebox/list",
