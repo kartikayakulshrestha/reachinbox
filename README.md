@@ -49,3 +49,11 @@
 
 ![Screenshot (32)](https://github.com/user-attachments/assets/1fa80fce-063f-4c69-925f-478f4799c87e)
 ![Screenshot (31)](https://github.com/user-attachments/assets/5dfa503c-99a8-42f0-8766-ab96b46c251c)
+
+
+<h1>Feedback I'm Open too</h1>
+<p>Tech Used:</p>
+<p>React js + Vite + Tailwind css + Redux  + Axios + Vercel + React Router Dom + React Icons + Figma</p>
+
+<p><span>IMP:</span>I can not Post video write now because but this is the project also the Apis are giving me Internal serve error (500) since 8:10 pm or 8:15pm 11 august 2024</p>
+<h2>ThankFull for work you provided, I think I tried Enough for doing the good job</h2>
