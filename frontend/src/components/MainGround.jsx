@@ -45,7 +45,7 @@ const MainGround = () => {
     return () => clearInterval(interval);
   }, []);
 
-  if (loading) {
+  /* if (loading) {
     return (
       <div
         className={`bg-[#ECEFF3] text-[#5B5F66] ${
@@ -55,7 +55,7 @@ const MainGround = () => {
         <AiOutlineLoading size={60} className=" animate-spin" />
       </div>
     );
-  }
+  } */
 
   return (
     <div
